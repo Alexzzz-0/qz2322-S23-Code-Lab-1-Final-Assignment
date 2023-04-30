@@ -27,9 +27,10 @@ public class GameDictionary : MonoBehaviour
         DATA_PATH = Application.dataPath + "/Data/DeadFile.txt";
     }
 
-    public void WriteIntoDeadFile(int deadIndex)
+    public void WriteIntoDeadFile(int deadIndex, float deadAmt)
     {
-        File.AppendAllText(DATA_PATH,deadIndex.ToString()+"\n");
+        string comName = AI_Level[deadIndex];
+        File.AppendAllText(DATA_PATH,comName+ "/" + deadAmt.ToString() +"\n");
     }
     
     

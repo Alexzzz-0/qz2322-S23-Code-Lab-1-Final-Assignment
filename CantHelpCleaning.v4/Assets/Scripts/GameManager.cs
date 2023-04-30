@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SpawnController _spawnController;
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private GameDictionary _gameDictionary;
+    [SerializeField] private DisplayGameInfo _displayGameInfo;
 
     private void Start()
     {
@@ -48,9 +49,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DestroyCom(int index)
+    public void DestroyCom(int index,float addAmt)
     {
+        //1. delete from current list
         _spawnController.DeleteCom(index);
-        _gameDictionary.WriteIntoDeadFile(index);
+        
+        //2. write into dead file
+        _gameDictionary.WriteIntoDeadFile(index,addAmt);
+        
+        //3. add it to the total amout
+        _displayGameInfo.DisplayTotal(addAmt);
+
+
     }
 }

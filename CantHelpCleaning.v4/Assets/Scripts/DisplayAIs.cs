@@ -22,7 +22,7 @@ public class DisplayAIs : MonoBehaviour
     private GameObject computerFather;
 
     //for debug
-    private string currentAI;
+    //private string currentAI;
 
     public void DisplayAIOnMap(int[] currentCom)
     {
@@ -44,11 +44,11 @@ public class DisplayAIs : MonoBehaviour
             }
             
             //display on the map
-            newComputer.transform.position = new Vector3(xOffSet + (count % numInRow) * Xgap, yOffSet + (count / numInRow) * Ygap);
+            newComputer.transform.position = new Vector3(xOffSet + (count % numInRow) * Xgap, yOffSet - (count / numInRow) * Ygap);
             newComputer.transform.parent = computerFather.transform;
 
             //for debug
-            currentAI += com.ToString();
+            //currentAI += com.ToString();
             
             count += 1;
         }
@@ -56,7 +56,7 @@ public class DisplayAIs : MonoBehaviour
         count = 0;
 
         //For debug
-        Debug.Log(currentAI);
-        currentAI = null;
+        //Debug.Log(currentAI);
+        //currentAI = null;
     }
 }
