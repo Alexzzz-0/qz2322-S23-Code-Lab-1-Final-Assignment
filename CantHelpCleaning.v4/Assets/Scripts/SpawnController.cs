@@ -20,7 +20,7 @@ public class SpawnController : MonoBehaviour
 
     private int newAILevel;
 
-    public int CurrentCapacity = 9;
+    public int CurrentCapacity = 10;
 
     public int highestLevel = 2;
     
@@ -36,7 +36,7 @@ public class SpawnController : MonoBehaviour
         timer += Time.deltaTime;
         
         //if there is space
-        if (currentAIs.Count <= CurrentCapacity)
+        if (currentAIs.Count <= CurrentCapacity -1)
         {
             //if it is the time
             if (timer >= TimeWaitForSpawn)
@@ -87,6 +87,9 @@ public class SpawnController : MonoBehaviour
                     }
                 }
                 
+                //re-calculate the fasten feature of the game
+                GameManager.instance._totalGrowAdd = 0;
+                GameManager.instance._totalCapacityAdd = 0;
                 
                 //re-display the map
                 int[] currentCom = currentAIs.ToArray();

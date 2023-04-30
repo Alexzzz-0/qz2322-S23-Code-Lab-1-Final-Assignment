@@ -7,9 +7,15 @@ using UnityEngine;
 public class GeneralCom : MonoBehaviour
 {
     public int comIndex;
-    private float dirtAmt;
     public float dirtCapacity;
     public float dirtGrowSpeed;
+    
+    private float dirtAmt;
+
+    public float growAdd;
+    public float capacityAdd;
+    private float _growAdd;
+    private float _capacityAdd;
     
     [SerializeField] private TextMeshPro dirt;
 
@@ -21,6 +27,12 @@ public class GeneralCom : MonoBehaviour
     private void Start()
     {
         dirt = transform.Find("display").GetComponent<TextMeshPro>();
+
+        _growAdd = growAdd;
+        _capacityAdd = capacityAdd;
+        
+        //tell GM to add speed
+        GameManager.instance.AddSpeednDirtCapacity(_growAdd,_capacityAdd);
     }
 
     private void Update()
@@ -36,17 +48,21 @@ public class GeneralCom : MonoBehaviour
             //1. delete from current list
             //2. write into dead file
             //3. add it to the total amout
-            GameManager.instance.DestroyCom(comIndex,dirtAmt);
+            GameManager.instance.DestroyCom(comIndex,dirtAmt,_growAdd,_capacityAdd);
             Destroy(gameObject);
         }
     }
 
     public void Grow()
     {
+        //get the current total fasten speed
+        growAdd = GameManager.instance._totalGrowAdd;
+        capacityAdd = GameManager.instance._totalCapacityAdd;
+        
         //automatically grow
-        if(dirtAmt < dirtCapacity)
+        if(dirtAmt < dirtCapacity + capacityAdd)
         {
-            dirtAmt += dirtGrowSpeed * Time.deltaTime;
+            dirtAmt += (dirtGrowSpeed + growAdd) * Time.deltaTime;
         }
 
         //display with text

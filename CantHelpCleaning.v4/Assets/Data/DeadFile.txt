@@ -54,3 +54,5 @@
 0
 General AI/0.211812
 General AI/0.1633202
+General AI/7.001078
+General AI/0.02424024

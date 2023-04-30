@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameDictionary _gameDictionary;
     [SerializeField] private DisplayGameInfo _displayGameInfo;
 
+    public float _totalGrowAdd;
+    public float _totalCapacityAdd;
+    
     private void Start()
     {
         if (instance == null)
@@ -49,7 +52,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DestroyCom(int index,float addAmt)
+    public void DestroyCom(int index,float addAmt, float cutSpeed, float cutDirtCap)
     {
         //1. delete from current list
         _spawnController.DeleteCom(index);
@@ -59,7 +62,16 @@ public class GameManager : MonoBehaviour
         
         //3. add it to the total amout
         _displayGameInfo.DisplayTotal(addAmt);
+        
+        //4. cut the current fasten speed
+        _totalGrowAdd -= cutSpeed;
+        _totalCapacityAdd -= cutDirtCap;
+    }
 
-
+    public void AddSpeednDirtCapacity(float addAmt, float addCap)
+    {
+        _totalGrowAdd += addAmt;
+        _totalCapacityAdd += addCap;
+        Debug.Log("speed add:" +_totalGrowAdd.ToString() +"//capacity add:" + _totalCapacityAdd.ToString());
     }
 }

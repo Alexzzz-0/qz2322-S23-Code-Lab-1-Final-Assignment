@@ -299,5 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comIndex: 0
   dirtCapacity: 3
-  dirtGrowSpeed: 0.1
+  dirtGrowSpeed: 1
+  growAdd: 0.2
+  capacityAdd: 1
   dirt: {fileID: 0}
