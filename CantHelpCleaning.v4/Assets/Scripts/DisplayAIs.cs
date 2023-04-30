@@ -33,15 +33,8 @@ public class DisplayAIs : MonoBehaviour
         
         foreach (var com in currentCom)
         {
-            switch (com)
-            {
-                case 0:
-                    newComputer = Instantiate(Computers[0]);
-                    break;
-                case 1:
-                    newComputer = Instantiate(Computers[1]);
-                    break;
-            }
+            //reflect the index in the array to game objects
+            newComputer = Instantiate(Computers[com]);
             
             //display on the map
             newComputer.transform.position = new Vector3(xOffSet + (count % numInRow) * Xgap, yOffSet - (count / numInRow) * Ygap);

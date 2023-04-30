@@ -19,12 +19,16 @@ public class GeneralCom : MonoBehaviour
     
     [SerializeField] private TextMeshPro dirt;
 
-    public GeneralCom(int _comIndex)
+    public GeneralCom(int _comIndex, float _dirtGrowSpeed, float _dirtCapacity, float _dirtGrowAdd, float _dirtCapAdd)
     {
         comIndex = _comIndex;
+        dirtGrowSpeed = _dirtGrowSpeed;
+        dirtCapacity = _dirtCapacity;
+        growAdd = _dirtGrowAdd;
+        capacityAdd = _dirtCapAdd;
     }
-
-    private void Start()
+    
+    public virtual void Start()
     {
         dirt = transform.Find("display").GetComponent<TextMeshPro>();
 
@@ -35,12 +39,12 @@ public class GeneralCom : MonoBehaviour
         GameManager.instance.AddSpeednDirtCapacity(_growAdd,_capacityAdd);
     }
 
-    private void Update()
+    public virtual void Update()
     {
         Grow();
     }
 
-    public void OnTriggerEnter2D(Collider2D col)
+    public virtual void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
         {
@@ -53,7 +57,7 @@ public class GeneralCom : MonoBehaviour
         }
     }
 
-    public void Grow()
+    public virtual void Grow()
     {
         //get the current total fasten speed
         growAdd = GameManager.instance._totalGrowAdd;
@@ -76,6 +80,5 @@ public class GeneralCom : MonoBehaviour
         {
             dirt.text = dirAmt;
         }
-        
     }
 }
