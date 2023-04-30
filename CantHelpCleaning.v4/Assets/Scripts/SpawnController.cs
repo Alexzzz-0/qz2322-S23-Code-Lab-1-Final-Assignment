@@ -21,6 +21,8 @@ public class SpawnController : MonoBehaviour
     private int newAILevel;
 
     public int CurrentCapacity = 9;
+
+    public int highestLevel = 2;
     
     private void Start()
     {
@@ -36,7 +38,6 @@ public class SpawnController : MonoBehaviour
         //if there is space
         if (currentAIs.Count <= CurrentCapacity)
         {
-            Debug.Log(currentAIs.Count.ToString());
             //if it is the time
             if (timer >= TimeWaitForSpawn)
             {
@@ -69,7 +70,23 @@ public class SpawnController : MonoBehaviour
                 #endregion
                 
                 //add it to the current running list
-                currentAIs.Add(newAILevel);
+                if (newAILevel <= highestLevel)
+                {
+                    currentAIs.Add(newAILevel);
+                }
+                else
+                {
+                    float random2 = Random.Range(0, 1f);
+                    if (random2 <= 0.5f)
+                    {
+                        currentAIs.Add(Math.Min(aiLevel_1,aiLevel_2));
+                    }
+                    else
+                    {
+                        currentAIs.Add(Math.Max(aiLevel_1,aiLevel_2));
+                    }
+                }
+                
                 
                 //re-display the map
                 int[] currentCom = currentAIs.ToArray();
@@ -78,9 +95,20 @@ public class SpawnController : MonoBehaviour
                 timer = 0f;
             }
         }
-        
-        
-        
-        
+    }
+
+    
+    
+    public void DeleteCom(int comIndex)
+    {
+        //delete one of the computer from the current list
+        for (int i = 0; i < currentAIs.Count; i++)
+        {
+            if (currentAIs[i] == comIndex)
+            {
+                currentAIs.RemoveAt(i);
+                return;
+            }
+        }
     }
 }
