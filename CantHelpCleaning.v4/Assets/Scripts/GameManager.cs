@@ -115,4 +115,5 @@ public class GameManager : MonoBehaviour
     {
         _spawnController.possibility_2 += 0.01f;
     }
+    
 }

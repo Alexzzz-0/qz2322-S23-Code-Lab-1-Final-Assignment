@@ -7,6 +7,9 @@ public class DisplayGameInfo : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI total;
     [SerializeField] private TextMeshProUGUI display;
+
+    [SerializeField] private GameObject mutePanel;
+    [SerializeField] private GameObject canvas;
     
     private float totalAmt;
     
@@ -25,13 +28,7 @@ public class DisplayGameInfo : MonoBehaviour
 
         return totalAmt;
     }
-
-    // public float time;
-    // public float growAddTotal;
-    // public float dirtCapTotal;
-    // public int comCapTotal;
-    // public float freshTime;
-    // public float evolvePossibility;
+    
     public void DisplayDetails(float time,float growAddTotal,float dirtCapTotal,int comCapTotal,float freshTime,float evolvePossibility)
     {
         display.text = "Next Time Update in: " + time.ToString().Substring(0, 1) + "\n" +
@@ -42,4 +39,13 @@ public class DisplayGameInfo : MonoBehaviour
                        "Evolved Possibility: 0.7 +" + evolvePossibility.ToString().Substring(0, 1);
 
     }
+
+    public void DisplayMutePanel()
+    {
+        GameObject newMutePrompt = Instantiate(mutePanel);
+        newMutePrompt.transform.parent = canvas.transform;
+    }
+    
+    
 }
+

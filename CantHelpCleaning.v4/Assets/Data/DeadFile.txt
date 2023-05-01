@@ -135,3 +135,6 @@ Summary AI/9.007524
 Expand AI/11.00719
 Summary AI/9.007524
 General AI/3.502156
+General AI/3.000362
+General AI/3.000362
+Manager AI/0

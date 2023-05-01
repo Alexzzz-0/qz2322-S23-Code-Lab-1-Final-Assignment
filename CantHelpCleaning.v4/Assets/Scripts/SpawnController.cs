@@ -9,8 +9,10 @@ public class SpawnController : MonoBehaviour
 {
     [SerializeField] private GameDictionary _gameDictionary;
     [SerializeField] private DisplayAIs _displayAIs;
+    [SerializeField] private DisplayGameInfo _displayGameInfo;
     
     private List<int> currentAIs = new List<int>();
+    private List<int> unlockedAIs = new List<int>();
 
     private float timer;
     public float TimeWaitForSpawn = 5f;
@@ -28,6 +30,8 @@ public class SpawnController : MonoBehaviour
     {
         currentAIs.Add(0);
         currentAIs.Add(0);
+        
+        unlockedAIs.Add(0);
     }
     
     public float Spawn()
@@ -67,26 +71,33 @@ public class SpawnController : MonoBehaviour
                     newAILevel = Math.Max(aiLevel_1, aiLevel_2);
                 }
 
-                #endregion
-                
-                //add it to the current running list
-                if (newAILevel <= highestLevel)
-                {
-                    currentAIs.Add(newAILevel);
-                }
-                else
+                //if the new level is out of range
+                if (newAILevel > highestLevel)
                 {
                     float random2 = Random.Range(0, 1f);
                     if (random2 <= 0.5f)
                     {
-                        currentAIs.Add(Math.Min(aiLevel_1,aiLevel_2));
+                        newAILevel = Math.Min(aiLevel_1,aiLevel_2);
                     }
                     else
                     {
-                        currentAIs.Add(Math.Max(aiLevel_1,aiLevel_2));
+                        newAILevel = Math.Max(aiLevel_1,aiLevel_2);
                     }
                 }
+
+                #endregion
                 
+                //add it to the current running list
+                currentAIs.Add(newAILevel);
+
+                //detect the mute
+                if (newAILevel == Math.Max(aiLevel_1, aiLevel_2) + 1)
+                {
+                    //check if it has been unlocked
+                    //if no,
+                    //tell view script to display the mute
+                    AddUnlocked(newAILevel);
+                }
                 //re-calculate the fasten feature of the game
                 GameManager.instance._totalGrowAdd = 0;
                 GameManager.instance._totalCapacityAdd = 0;
@@ -114,6 +125,16 @@ public class SpawnController : MonoBehaviour
                 currentAIs.RemoveAt(i);
                 return;
             }
+        }
+    }
+
+    private void AddUnlocked(int newAIIndex)
+    {
+        if (!unlockedAIs.Contains(newAIIndex))
+        {
+            unlockedAIs.Add(newAILevel);
+            //tell display script to display
+            _displayGameInfo.DisplayMutePanel();
         }
     }
 }
