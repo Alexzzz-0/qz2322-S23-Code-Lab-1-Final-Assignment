@@ -134,7 +134,7 @@ public class SpawnController : MonoBehaviour
         {
             unlockedAIs.Add(newAILevel);
             //tell display script to display
-            _displayGameInfo.DisplayMutePanel();
+            _displayGameInfo.DisplayMutePanel(newAILevel);
         }
     }
 }

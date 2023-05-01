@@ -28,9 +28,9 @@ public class GameDictionary : MonoBehaviour
         AIs[0, 1] = "/";
         AIs[1, 0] = "Manager AI";
         AIs[1, 1] = "Manager AI";
-        AIs[2, 0] = "Summary AI";
+        AIs[2, 0] = "Expand AI";
         AIs[2, 1] = "Manager AI";
-        AIs[3, 0] = "Expand  AI";
+        AIs[3, 0] = "External  AI";
         AIs[3, 1] = "Manager AI";
         AIs[4, 0] = "Optimize AI";
         AIs[4, 1] = "Manager AI";
