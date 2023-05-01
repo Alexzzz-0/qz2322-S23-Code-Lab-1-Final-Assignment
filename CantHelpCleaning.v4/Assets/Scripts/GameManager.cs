@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     public float _totalGrowAdd;
     public float _totalCapacityAdd;
+
+    public float totalAmt;
     
     private void Start()
     {
@@ -61,7 +63,7 @@ public class GameManager : MonoBehaviour
         _gameDictionary.WriteIntoDeadFile(index,addAmt);
         
         //3. add it to the total amout
-        _displayGameInfo.DisplayTotal(addAmt);
+        totalAmt = _displayGameInfo.DisplayTotal(addAmt);
         
         //4. cut the current fasten speed
         _totalGrowAdd -= cutSpeed;

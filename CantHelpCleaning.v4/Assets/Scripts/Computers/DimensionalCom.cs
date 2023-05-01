@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class DimensionalCom : InnovateCom
 {
-    [SerializeField] private DisplayGameInfo _displayGameInfo;
 
     public override void Start()
     {
         base.Start();
-        dirtCapacity = _displayGameInfo.totalAmt;
+        dirtCapacity = GameManager.instance.totalAmt;
     }
 }

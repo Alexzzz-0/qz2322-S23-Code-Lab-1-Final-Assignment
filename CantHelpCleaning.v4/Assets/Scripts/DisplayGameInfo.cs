@@ -6,9 +6,9 @@ using UnityEngine;
 public class DisplayGameInfo : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI total;
-    public float totalAmt;
+    private float totalAmt;
     
-    public void DisplayTotal(float addAmt)
+    public float DisplayTotal(float addAmt)
     {
         totalAmt += addAmt;
         string _totalAmt = totalAmt.ToString();
@@ -20,5 +20,7 @@ public class DisplayGameInfo : MonoBehaviour
         {
             total.text = _totalAmt;
         }
+
+        return totalAmt;
     }
 }
