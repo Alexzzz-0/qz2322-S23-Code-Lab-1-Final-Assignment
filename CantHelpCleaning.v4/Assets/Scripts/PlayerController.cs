@@ -21,11 +21,11 @@ public class PlayerController : MonoBehaviour
         {
             if (currentDirection == PlayerDirection.up)
             {
-                _player.MoveVertical(-1f);
+                _player.MoveVertical(-1);
             }
             else
             {
-                _player.Turn(-1f);
+                _player.Turn(-1);
                 currentDirection = PlayerDirection.up;
             }
         }
@@ -34,11 +34,11 @@ public class PlayerController : MonoBehaviour
         {
             if (currentDirection == PlayerDirection.down)
             {
-                _player.MoveVertical(1f);
+                _player.MoveVertical(1);
             }
             else
             {
-                _player.Turn(1f);
+                _player.Turn(1);
                 currentDirection = PlayerDirection.down;
             }
         }
@@ -47,11 +47,11 @@ public class PlayerController : MonoBehaviour
         {
             if (currentDirection == PlayerDirection.left)
             {
-                _player.MoveHorizontal(-1f);
+                _player.MoveHorizontal(-1);
             }
             else
             {
-                _player.Turn(2f);
+                _player.Turn(2);
                 currentDirection = PlayerDirection.left;
             }
         }
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         {
             if (currentDirection == PlayerDirection.right)
             {
-                _player.MoveHorizontal(1f);
+                _player.MoveHorizontal(1);
             }
             else
             {
@@ -69,4 +69,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    
+    
 }

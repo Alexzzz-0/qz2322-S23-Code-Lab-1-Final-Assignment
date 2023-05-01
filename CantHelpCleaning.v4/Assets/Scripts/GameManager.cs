@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private GameDictionary _gameDictionary;
     [SerializeField] private DisplayGameInfo _displayGameInfo;
+    [SerializeField] private player _player;
 
     public float _totalGrowAdd;
     public float _totalCapacityAdd;
@@ -19,6 +20,12 @@ public class GameManager : MonoBehaviour
 
     private float timer;
     private int currentComCap;
+
+    public int MaxAICapacity = 15;
+
+    //private int _directionR = 0;
+    private int _directionX = 0;
+    private int _directionY = 0;
     
     private void Start()
     {
@@ -38,25 +45,36 @@ public class GameManager : MonoBehaviour
         _displayGameInfo.DisplayDetails(timer,_totalGrowAdd,_totalCapacityAdd,
             5-_spawnController.CurrentCapacity,5-_spawnController.TimeWaitForSpawn,
             _spawnController.possibility_2);
-
+        
+        //_player.MoveHorizontal(_directionX);
+        //_player.MoveVertical(_directionY);
+        
         if (Input.GetKeyDown(KeyCode.A))
         {
             _playerController.TurnOrMove(2);
+            //_player.Turn(2);
+            //_directionX = 1;
         }
         
         if (Input.GetKeyDown(KeyCode.S))
         {
             _playerController.TurnOrMove(0);
+            //_player.Turn(3f);
+            //_directionY = -1;
         }
         
         if (Input.GetKeyDown(KeyCode.D))
         {
             _playerController.TurnOrMove(3);
+            //_player.Turn(0);
+            //_directionX = -1;
         }
         
         if (Input.GetKeyDown(KeyCode.W))
         {
             _playerController.TurnOrMove(1);
+            //_player.Turn(1f);
+            //_directionY = 1;
         }
     }
 
@@ -85,7 +103,7 @@ public class GameManager : MonoBehaviour
 
     public void AddComCapacity()
     {
-        if (_spawnController.CurrentCapacity <= 9)
+        if (_spawnController.CurrentCapacity < MaxAICapacity)
         {
             _spawnController.CurrentCapacity += 1;
         }

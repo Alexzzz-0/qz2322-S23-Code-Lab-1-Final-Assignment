@@ -126,10 +126,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comIndex: 4
-  dirtCapacity: 11
-  dirtGrowSpeed: 1.8
+  dirtCapacity: 17
+  dirtGrowSpeed: 0.08
   growAdd: 0.5
-  capacityAdd: 0.5
+  capacityAdd: 6
   dirt: {fileID: 0}
 --- !u!1 &6223594320281216023
 GameObject:

@@ -7,7 +7,6 @@ using Random = UnityEngine.Random;
 
 public class SpawnController : MonoBehaviour
 {
-    [SerializeField] private GameDictionary _gameDictionary;
     [SerializeField] private DisplayAIs _displayAIs;
     [SerializeField] private DisplayGameInfo _displayGameInfo;
     
@@ -110,7 +109,7 @@ public class SpawnController : MonoBehaviour
             }
         }
 
-        return 5-timer;
+        return (TimeWaitForSpawn -timer);
     }
 
     
@@ -136,5 +135,8 @@ public class SpawnController : MonoBehaviour
             //tell display script to display
             _displayGameInfo.DisplayMutePanel(newAILevel);
         }
+
+        //make the update slower and slower
+        TimeWaitForSpawn += 5f;
     }
 }

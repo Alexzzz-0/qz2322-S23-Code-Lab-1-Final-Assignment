@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 509607214}
   - component: {fileID: 509607213}
   m_Layer: 0
-  m_Name: Character
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -464,8 +464,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _displayAIs: {fileID: 733032957}
   playerRb: {fileID: 509607214}
-  xSpeedTime: 1
-  ySpeedTime: 1
+  xSpeedTime: 0.5
+  ySpeedTime: 0.5
   turnSpeedTime: 1
 --- !u!212 &509607211
 SpriteRenderer:
@@ -528,8 +528,8 @@ Transform:
   m_GameObject: {fileID: 509607208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -720,7 +720,7 @@ MonoBehaviour:
   xOffSet: -7
   yOffSet: 2
   Xgap: 2
-  Ygap: 3.2
+  Ygap: 2
   numInRow: 5
 --- !u!1 &949187417
 GameObject:
@@ -867,7 +867,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b558ea53194147e498016bdc29ebe5be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameDictionary: {fileID: 0}
   _displayAIs: {fileID: 733032957}
   _displayGameInfo: {fileID: 1799480872}
   TimeWaitForSpawn: 5
@@ -953,9 +952,11 @@ MonoBehaviour:
   _playerController: {fileID: 1321636256}
   _gameDictionary: {fileID: 1963058540}
   _displayGameInfo: {fileID: 1799480872}
+  _player: {fileID: 509607210}
   _totalGrowAdd: 0
   _totalCapacityAdd: 0
   totalAmt: 0
+  MaxAICapacity: 15
 --- !u!4 &1370382468
 Transform:
   m_ObjectHideFlags: 0
@@ -1062,7 +1063,7 @@ MonoBehaviour:
   - {fileID: 4427187093908480544, guid: 5dfc70a5ef561e04e8b173ae98407a00, type: 3}
   - {fileID: 8950154417346470908, guid: 73e1d82679e10814dae4c5dd2b5c28d2, type: 3}
   canvas: {fileID: 949187417}
-  newPos: {x: 580, y: 200}
+  newPos: {x: 550, y: 180}
 --- !u!1 &1881750497
 GameObject:
   m_ObjectHideFlags: 0
