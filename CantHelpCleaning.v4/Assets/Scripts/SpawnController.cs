@@ -30,7 +30,7 @@ public class SpawnController : MonoBehaviour
         currentAIs.Add(0);
     }
     
-    public void Spawn()
+    public float Spawn()
     {
         //create a timer
         timer += Time.deltaTime;
@@ -98,6 +98,8 @@ public class SpawnController : MonoBehaviour
                 timer = 0f;
             }
         }
+
+        return 5-timer;
     }
 
     

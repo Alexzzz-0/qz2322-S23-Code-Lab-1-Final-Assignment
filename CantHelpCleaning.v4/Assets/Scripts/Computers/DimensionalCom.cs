@@ -9,5 +9,6 @@ public class DimensionalCom : InnovateCom
     {
         base.Start();
         dirtCapacity = GameManager.instance.totalAmt;
+        
     }
 }

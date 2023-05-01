@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public float _totalCapacityAdd;
 
     public float totalAmt;
+
+    private float timer;
+    private int currentComCap;
     
     private void Start()
     {
@@ -31,7 +34,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        _spawnController.Spawn();
+        timer = _spawnController.Spawn();
+        _displayGameInfo.DisplayDetails(timer,_totalGrowAdd,_totalCapacityAdd,
+            5-_spawnController.CurrentCapacity,5-_spawnController.TimeWaitForSpawn,
+            _spawnController.possibility_2);
 
         if (Input.GetKeyDown(KeyCode.A))
         {
