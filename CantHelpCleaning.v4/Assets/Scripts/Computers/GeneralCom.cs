@@ -19,14 +19,14 @@ public class GeneralCom : MonoBehaviour
     
     [SerializeField] private TextMeshPro dirt;
 
-    public GeneralCom(int _comIndex, float _dirtGrowSpeed, float _dirtCapacity, float _dirtGrowAdd, float _dirtCapAdd)
-    {
-        comIndex = _comIndex;
-        dirtGrowSpeed = _dirtGrowSpeed;
-        dirtCapacity = _dirtCapacity;
-        growAdd = _dirtGrowAdd;
-        capacityAdd = _dirtCapAdd;
-    }
+    // public GeneralCom(int _comIndex, float _dirtGrowSpeed, float _dirtCapacity, float _dirtGrowAdd, float _dirtCapAdd)
+    // {
+    //     comIndex = _comIndex;
+    //     dirtGrowSpeed = _dirtGrowSpeed;
+    //     dirtCapacity = _dirtCapacity;
+    //     growAdd = _dirtGrowAdd;
+    //     capacityAdd = _dirtCapAdd;
+    // }
     
     public virtual void Start()
     {

@@ -16,7 +16,12 @@ public class GameDictionary : MonoBehaviour
     {
         //create the dictionary for searching
         AI_Level.Add(0,"General AI");
-        AI_Level.Add(1,"Better AI");
+        AI_Level.Add(1,"Manager AI");
+        AI_Level.Add(2,"Summary AI");
+        AI_Level.Add(3,"Expand AI");
+        AI_Level.Add(4,"Optimize AI");
+        AI_Level.Add(5,"Innovate AI");
+        AI_Level.Add(6,"Dimensional AI");
 
         FILE_PATH = Application.dataPath + "/Data/";
         if (!File.Exists(FILE_PATH))

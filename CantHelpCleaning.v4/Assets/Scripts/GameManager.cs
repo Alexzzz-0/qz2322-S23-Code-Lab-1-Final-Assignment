@@ -72,6 +72,39 @@ public class GameManager : MonoBehaviour
     {
         _totalGrowAdd += addAmt;
         _totalCapacityAdd += addCap;
-        Debug.Log("speed add:" +_totalGrowAdd.ToString() +"//capacity add:" + _totalCapacityAdd.ToString());
+        //Debug.Log("speed add:" +_totalGrowAdd.ToString() +"//capacity add:" + _totalCapacityAdd.ToString());
+    }
+
+    public void AddComCapacity()
+    {
+        if (_spawnController.CurrentCapacity <= 9)
+        {
+            _spawnController.CurrentCapacity += 1;
+        }
+    }
+
+    public void CutComCapacity()
+    {
+        _spawnController.CurrentCapacity -= 1;
+    }
+
+    public void FastenUpdateSpeed()
+    {
+        _spawnController.TimeWaitForSpawn -= 0.2f;
+    }
+
+    public void ReduceUpdateSpeed()
+    {
+        _spawnController.TimeWaitForSpawn += 0.2f;
+    }
+
+    public void AddEvlvPossibility()
+    {
+        _spawnController.possibility_2 -= 0.01f;
+    }
+
+    public void ReduceEvlvPossibility()
+    {
+        _spawnController.possibility_2 += 0.01f;
     }
 }
