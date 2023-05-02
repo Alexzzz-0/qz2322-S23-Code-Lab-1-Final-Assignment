@@ -86,10 +86,13 @@ public class GameManager : MonoBehaviour
         //2. write into dead file
         _gameDictionary.WriteIntoDeadFile(index,addAmt);
         
-        //3. add it to the total amout
+        //3. add it to the total amount
         totalAmt = _displayGameInfo.DisplayTotal(addAmt);
+
+        //4. total amount allows each AI to capture more
+        _totalCapacityAdd += totalAmt / 10f;
         
-        //4. cut the current fasten speed
+        //5. cut the current fasten speed
         _totalGrowAdd -= cutSpeed;
         _totalCapacityAdd -= cutDirtCap;
     }
@@ -116,12 +119,12 @@ public class GameManager : MonoBehaviour
 
     public void FastenUpdateSpeed()
     {
-        _spawnController.TimeWaitForSpawn -= 0.2f;
+        _spawnController.TimeWaitForSpawn -= 1f;
     }
 
     public void ReduceUpdateSpeed()
     {
-        _spawnController.TimeWaitForSpawn += 0.2f;
+        _spawnController.TimeWaitForSpawn += 1f;
     }
 
     public void AddEvlvPossibility()

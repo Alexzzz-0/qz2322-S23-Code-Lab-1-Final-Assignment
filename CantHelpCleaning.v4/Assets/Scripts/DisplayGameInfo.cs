@@ -22,7 +22,7 @@ public class DisplayGameInfo : MonoBehaviour
     public Vector2 newPos;
 
     private float _addAmt;
-    private float stage = 20f;
+    private float stage = 25f;
     private string _totalAmt;
     
     public float DisplayTotal(float addAmt)

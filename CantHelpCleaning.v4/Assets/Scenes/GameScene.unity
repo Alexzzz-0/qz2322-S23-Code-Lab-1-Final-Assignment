@@ -1063,7 +1063,7 @@ MonoBehaviour:
   - {fileID: 4427187093908480544, guid: 5dfc70a5ef561e04e8b173ae98407a00, type: 3}
   - {fileID: 8950154417346470908, guid: 73e1d82679e10814dae4c5dd2b5c28d2, type: 3}
   canvas: {fileID: 949187417}
-  newPos: {x: 550, y: 180}
+  newPos: {x: 150, y: 500}
 --- !u!1 &1881750497
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,7 +30,7 @@ public class SpawnController : MonoBehaviour
         currentAIs.Add(0);
         currentAIs.Add(0);
         
-        unlockedAIs.Add(0);
+        AddUnlocked(0);
     }
     
     public float Spawn()

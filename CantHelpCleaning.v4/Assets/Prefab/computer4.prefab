@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comIndex: 3
-  dirtCapacity: 14
+  dirtCapacity: 21
   dirtGrowSpeed: 0.32
   growAdd: 0.5
   capacityAdd: 2
